@@ -1,1 +1,1 @@
-Menu app built with flask flask.
+Menu app built with flask.
