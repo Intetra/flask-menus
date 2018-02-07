@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% block head %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Restaurant Menus</title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/scripts.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/tinymce/jquery.tinymce.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/tinymce/tinymce.min.js') }}"></script>
+  {% endblock %}
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="navBar row">
+      <div class="navButton col-xs-6">
+        <a href="/">Front</a>
+      </div>
+      <div class="navButton col-xs-6">
+        <a href="/projects">Projects</a>
+      </div>
+    </div>
+    {% block content %}
+    <div class="holder row">
+      <div class="col-xs-12">
+        <h1>Restaurants</h1> {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+        <strong class="error">{{ message }}</strong><br /> {% endfor %} {% endif %} {% endwith %}
+        <a class="restLowerLink" href="{{ url_for('newRestaurant') }}">Create new Restaurant</a>
+        <hr />
+      </div>
+      {% for x in restaurants %}
+      <div class="col-xs-12">
+        <h2>
+        <a href="{{ url_for('restaurantMenu', restaurant_id=x.id) }}">
+          <span class="name">
+            {{x.name}}
+          </span>
+        </a></h2>
+        <h3>{{x.description}}</h3>
+        <br />
+        <a class="restLowerLink" href="{{ url_for('editRestaurant', restaurant_id=x.id) }}">edit</a> |
+        <a class="restLowerLink" href="{{ url_for('deleteRestaurant', restaurant_id=x.id) }}">delete</a>
+        <br />
+        <hr>
+      </div>
+      {% endfor %}
+      <br>
+    </div>
+    {% endblock %}
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{% extends 'menusfront.html' %} {% block head %} {{super()}} {% endblock %} {% block content %}
+<div class="holder">
+  <h1>New Restaurant</h1>
+  <form id="newRestaurantForm" action="{{ url_for('newRestaurant') }}" method="post">
+    <p>Name:</p>
+    <input type='text' name='name' />
+    <p>Description:</p>
+    <input type='text' name='description' />
+  </form>
+  <form id="newRestaurantFormCancel" action="{{ url_for('menusFront') }}">
+  </form>
+  <br />
+  <input class="bttn" form="newRestaurantForm" type='submit' value='Create' />
+  <input class="bttn" form="newRestaurantFormCancel" type="submit" value="Cancel" />
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'menusfront.html' %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+  <div class="holder">
+  <h1>New Menu Item</h1>
+  <form id="newMenuItemForm" action="{{ url_for('newMenuItem', restaurant_id=restaurant_id) }}"
+  method="post">
+  <p>Name:</p>
+  <input type='text' size='30' name='name' />
+  <p>Price:</p>
+  <input type='text' size='30' name='price' />
+  <p>Description:</p>
+  <input type='text' size='30' name='description' />
+  <br /><br />
+</form>
+<form id="newMenuItemFormCancel" action="{{url_for('restaurantMenu', restaurant_id=restaurant_id)}}">
+</form>
+<br />
+<input class="bttn" form="newMenuItemForm" type='submit' value='Create' />
+<input class="bttn" form="newMenuItemFormCancel" type="submit" value="Cancel" />
+</div>
+{% endblock %}

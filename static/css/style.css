@@ -1,0 +1,75 @@
+html {
+  overflow-y: scroll;
+}
+body {
+    height: 100%;
+    font-family: Georgia serif;
+    background-color: #333333;
+    color: #ffffcc;
+    background-color: rgb(255, 255, 255);
+    background-image: url('../images/menus_front.jpg');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #ffffff;
+}
+input[type="text"], .bttn {
+  color: black;
+  border-radius: 10px;
+}
+.error {
+  color: red;
+  text-shadow: 2px 2px 2px #000000;
+}
+.navBar {
+  text-shadow: center;
+  background-color: rgb(0, 165, 201);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+.navButton {
+  text-align: center;
+  display: inline-block;
+  font-size: 28px;
+}
+.name:hover {
+  color: #c2bdbd;
+}
+a {
+    text-decoration: none;
+    color: #ffffcc;
+}
+a:hover {
+  color: #d1d1a0;
+}
+.restLowerLink {
+  font-size: 24px;
+}
+.holder {
+    text-align: center;
+    border: 3px solid;
+    border-radius: 25px;
+    padding: 5px;
+    margin: 10vh auto 0 auto;
+    border-color: #00afc7;
+    width: 80%;
+}
+.holder {
+  background-color: rgba(0, 165, 201, 0.9)
+}
+@media(max-width:767px) {
+  body {
+    background-image: none;
+  }
+}
